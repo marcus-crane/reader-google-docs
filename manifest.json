@@ -1,0 +1,28 @@
+{
+  "name": "Google Docs to Reader",
+  "description": "Local man just wants his documents",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "content_scripts": [
+    {
+      "matches": ["*://docs.google.com/*"],
+      "js": ["script.js"],
+      "run_time": "document_idle"
+    }
+  ],
+  "permissions": [
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback"
+  ],
+  "host_permissions": [
+    "*://docs.google.com/*",
+    "*://example.com/*"
+  ],
+  "declarative_net_request": {
+    "rule_resources": [{
+      "id": "ruleset_1",
+      "enabled": true,
+      "path": "rules.json"
+    }]
+  }
+}
